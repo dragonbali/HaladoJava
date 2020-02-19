@@ -22,10 +22,10 @@ public class Astronomer {
 
 	public void observeTheSky() {
 		for (int i = 0; i < 10; i++) {
-			double radian = new Random().nextInt(1000000);
+			int radian = new Random().nextInt(1000000);
 			String name = this.name + "_" + (i);
-			Point position = new Point((i + 1) * 10, 0, 0);		
-			discoveredPlanets.add(new Planet(pos, rad, name));
+			Point position = new Point((i + 1) * 10, 0, 0);
+			discoveredPlanets.add(new Planet(position.toString(), radian, name));
 		}
 	}
 	
