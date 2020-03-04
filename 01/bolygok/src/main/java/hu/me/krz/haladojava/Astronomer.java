@@ -25,7 +25,7 @@ public class Astronomer {
 			int radian = new Random().nextInt(1000000);
 			String name = this.name + "_" + (i);
 			Point position = new Point((i + 1) * 10, 0, 0);
-			discoveredPlanets.add(new Planet(position.toString(), radian, name));
+			discoveredPlanets.add(new Planet(position, radian, name));
 		}
 	}
 	
