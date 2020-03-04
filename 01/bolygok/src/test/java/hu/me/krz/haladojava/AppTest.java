@@ -1,8 +1,10 @@
 package hu.me.krz.haladojava;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import static org.junit.jupiter.Assertions.assertTrue;
+
+import org.junit.*;
 
 /**
  * Unit test for simple App.
