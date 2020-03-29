@@ -1,8 +1,7 @@
-package hu.KomplexWebMaven;
+package org.komplex.feladat;
 
 public class SpaceValidator implements Validator {
 
-	@Override
 	public boolean isValid(User user) {
 		return false;
 	}

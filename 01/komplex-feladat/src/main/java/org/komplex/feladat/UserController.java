@@ -1,4 +1,4 @@
-package hu.KomplexWebMaven;
+package org.komplex.feladat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -6,12 +6,13 @@ public class UserController {
 	
 	public class UseRepository{
 		UseRepository useRepository = new UseRepository();
-		ArrayList<Validator> validators = new ArrayList<>();
+		ArrayList<Validator> validators = new ArrayList<Validator>();
 		
 		public void save(User user){
 			useRepository.save(user);
 		}
 		
+	@SuppressWarnings("unused")
 	private boolean isValid(User user){
 		for (Validator validator : validators) {
 			if (!validator.isValid(user)) {

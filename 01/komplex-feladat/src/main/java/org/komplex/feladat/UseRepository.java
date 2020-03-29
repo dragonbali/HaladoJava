@@ -1,4 +1,4 @@
-package hu.KomplexWebMaven;
+package org.komplex.feladat;
 
 import java.util.ArrayList;
 

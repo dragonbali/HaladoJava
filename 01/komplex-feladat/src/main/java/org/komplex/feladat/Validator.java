@@ -1,4 +1,4 @@
-package hu.KomplexWebMaven;
+package org.komplex.feladat;
 
 public interface Validator {
 	boolean isValid(User user);
