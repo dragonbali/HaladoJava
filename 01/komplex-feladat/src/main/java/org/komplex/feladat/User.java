@@ -2,13 +2,13 @@ package org.komplex.feladat;
 
 public class User {
 
-	private String userName;
+	private String name;
 	private String pw;
 	private boolean enable;
 	private String neptun;
 	
 	public String getUserName() {
-		return userName;
+		return name;
 	}
 	public String getPw() {
 		return pw;
@@ -22,7 +22,7 @@ public class User {
 	
 	public User(String userName, String pw, boolean enable, String neptun) {
 		super();
-		this.userName = userName;
+		this.name = userName;
 		this.pw = pw;
 		this.enable = enable;
 		this.neptun = neptun;
@@ -30,7 +30,7 @@ public class User {
 	
 	@Override
 	public String toString() {
-		return "User [userName=" + userName + ", pw=" + pw + ", enable=" + enable + ", neptun=" + neptun + "]";
+		return "User: Name=" + name + ", pw=" + pw + ", enable=" + enable + ", neptun=" + neptun + "]";
 	}
 	
 

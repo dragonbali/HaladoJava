@@ -1,10 +1,11 @@
 package org.komplex.feladat;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UseRepository {
 	
-	ArrayList<User> users = new ArrayList<User>();
+	List<User> users = new ArrayList<User>();
 
 	public void save(User user){
 		System.out.printf("%s mentve%n",user.getUserName());
@@ -18,12 +19,12 @@ public class UseRepository {
 		}
 		return null;
 	}
-	public ArrayList<User> findAll() {
+	public List<User> findAll() {
 		return users;
 	}
 	
-	public ArrayList<User> findByEnableIsTrue() {
-		ArrayList<User> result = new ArrayList<User>();
+	public List<User> findByEnableIsTrue() {
+		List<User> result = new ArrayList<User>();
 		for (User user : users) {
 			if (user.isEnable()) {
 				result.add(user);
