@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+	<form action="#" th:action="@{/calculator}" method="post" th:object="${data}">
+	    <input type="text" th:field="*{x}"/>	    
+	    <input type="text" th:field="*{y}"/>  
+	    <p>
+		    <input type="submit" class="button" name="summation" value="+"/>
+		    <input type="submit" class="button" name="subtraction" value="-"/>
+		    <input type="submit" class="button" name="multiplication" value="*"/>
+		    <input type="submit" class="button" name="division" value="/"/>
+	    </p>
+	</form>
+	<p>Result: <span th:text="${result}">span</span> </p>
+	<a href="/">Back</a>
+</body>
+</html>
