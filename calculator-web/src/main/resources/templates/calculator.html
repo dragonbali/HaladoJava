@@ -1,21 +1,66 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Calculator</title>
-</head>
-<body>
-	<form action="#" th:action="@{/calculator}" method="post" th:object="${data}">
-	    <input type="text" th:field="*{x}"/>	    
-	    <input type="text" th:field="*{y}"/>  
-	    <p>
-		    <input type="submit" class="button" name="summation" value="+"/>
-		    <input type="submit" class="button" name="subtraction" value="-"/>
-		    <input type="submit" class="button" name="multiplication" value="*"/>
-		    <input type="submit" class="button" name="division" value="/"/>
-	    </p>
-	</form>
-	<p>Result: <span th:text="${result}">span</span> </p>
-	<a href="/">Back</a>
-</body>
+<html lang="en"xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>Bootstrap Example</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+      <style>
+         .error-field {
+         background-color: red;
+         }
+         html body {
+         background-image: url("https://wallpaperplay.com/walls/full/5/8/4/145573.jpg");
+         }
+      </style>
+   </head>
+   <body>
+      <nav class="navbar navbar-expand-sm bg-light navbar-light">
+         <a class="navbar-brand">
+         <img src="https://pngimage.net/wp-content/uploads/2018/05/calculator-logo-png-3.png" alt="logo" style="width:40px;">
+         </a>
+         <ul class="navbar-nav pl-2">
+            <li class="nav-item">
+               <a class="nav-link h4" href="/">Home</a>
+            </li>
+            <li class="nav-item active">
+               <a class="nav-link h4" href="/calculator">Calculator</a>
+            </li>
+         </ul>
+      </nav>
+      <div class="container pt-5 text-white">
+         <form action="#" th:action="@{/calculator}" method="post" th:object="${operandDto}">
+            <div class="row">
+               <div class="form-group col-md-2">
+                  <label>First parameter</label>
+                  <input type="number" step="any" class="form-control" autocomplete="off" th:field="*{x}" th:classappend="${#fields.hasErrors('x')} ? 'error-field'">
+                  <ul>
+                     <li th:each="error : ${#fields.errors('x')}" th:text="${error}" />
+                  </ul>
+               </div>
+               <div class="form-group col-md-2">
+                  <label>Second parameter</label>
+                  <input type="number" step="any" class="form-control" autocomplete="off" th:field="*{y}" th:classappend="${#fields.hasErrors('y')} ? 'error-field'">
+                  <ul>
+                     <li th:each="error : ${#fields.errors('y')}" th:text="${error}" />
+                  </ul>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-2">
+                  <input type="submit" class="btn btn-light" name="summation" value="+"/>
+                  <input type="submit" class="btn btn-light" name="subtraction" value="-"/>
+                  <input type="submit" class="btn btn-light" name="multiplication" value="*"/>
+                  <input type="submit" class="btn btn-light" name="division" value="/"/>
+               </div>
+               <div class="col-md-6">
+                  <a class="h3 col-2">Result: <span th:text="${result}">span</span> </a> 
+               </div>
+            </div>
+         </form>
+      </div>
+   </body>
 </html>

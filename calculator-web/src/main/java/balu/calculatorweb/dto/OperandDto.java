@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MoveDto {
+public class OperandDto {
 	@NotNull
 	private Double x;
 	@NotNull
