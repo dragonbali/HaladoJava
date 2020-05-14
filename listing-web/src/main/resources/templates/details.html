@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8">
+      <title>Insert title here</title>
+   </head>
+   <body>
+      <p th:text="${students[{index}].studentName}"></p>
+      <p>Feladatok:</p>
+      <ul th:each="task: ${students[{index}].tasks}">
+         <li th:text="${task.title}"></li>
+         <li th:text="${task.date}"></li>
+         <li th:text="${task.solution}"></li>
+         <li th:if="${task.isDone}">kész</li>
+         <li th:unless="${task.isDone}">nincs kész</li>
+         <li th:text="${task.comment}"></li>
+      </ul>
+      <p>Tanárok:</p>
+      <ul>
+         <li th:each="teacher: ${students[{index}].teachers}" th:text="${teacher.teacherName}"></li>
+      </ul>
+      <form style="padding: 35px;" method="get" action="/all">
+         <button type="submit">Vissza</button>
+      </form>
+   </body>
+</html>

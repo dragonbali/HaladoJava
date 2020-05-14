@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8">
+      <title>All my students</title>
+   </head>
+   <body>
+      <div th:each="student : ${students}">
+         <p th:text="${student.studentName}"></p>
+         <span>Osszes feladatok: </span> 
+         <span th:text="${#lists.size(student.tasks)}"></span> 
+         <span th:each="task: ${student.tasks}">
+         <span style="background-color: red;" th:unless="${task.isDone}">Van megoldatlan feladata!</span>
+         </span>
+         <br>
+         <form th:action="@{/all}" method="post" th:object="${index}">
+            <button type="submit" th:name="index" th:value="${studentStat.index}" >részletek</button>
+         </form>
+      </div>
+      <form  style="padding: 35px;" method="get" action="/">
+         <button type="submit">Vissza</button>
+      </form>
+   </body>
+</html>
