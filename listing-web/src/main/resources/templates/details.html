@@ -5,19 +5,22 @@
       <title>Insert title here</title>
    </head>
    <body>
-      <p th:text="${students[{index}].studentName}"></p>
+      <p th:text="${student.studentName}"></p>
       <p>Feladatok:</p>
-      <ul th:each="task: ${students[{index}].tasks}">
+      <ul th:each="task: ${student.tasks}">
          <li th:text="${task.title}"></li>
-         <li th:text="${task.date}"></li>
+         <li>határido:</li>
+         <li th:text="${task.deadline}"></li>
+         <li>bekuldes ideje:</li>
+         <li th:text="${task.receiptTime}"></li>
          <li th:text="${task.solution}"></li>
          <li th:if="${task.isDone}">kész</li>
-         <li th:unless="${task.isDone}">nincs kész</li>
+         <li th:unless="${task.isDone}">nincs kész vagy késon teljesitette</li>
          <li th:text="${task.comment}"></li>
       </ul>
       <p>Tanárok:</p>
       <ul>
-         <li th:each="teacher: ${students[{index}].teachers}" th:text="${teacher.teacherName}"></li>
+         <li th:each="teacher: ${student.teachers}" th:text="${teacher.teacherName}"></li>
       </ul>
       <form style="padding: 35px;" method="get" action="/all">
          <button type="submit">Vissza</button>

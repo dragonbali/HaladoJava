@@ -8,9 +8,9 @@
       <div th:each="student : ${students}">
          <p th:text="${student.studentName}"></p>
          <span>Osszes feladatok: </span> 
-         <span th:text="${#lists.size(student.tasks)}"></span> 
-         <span th:each="task: ${student.tasks}">
-         <span style="background-color: red;" th:unless="${task.isDone}">Van megoldatlan feladata!</span>
+         <span th:text="${#lists.size(student.tasks)}"></span>          
+         <span th:each="task: ${student.tasks}">        
+         <span style="background-color: red;" th:unless="${task.isDone}">Van késon bekuldott vagy megoldatlan feladata!</span>
          </span>
          <br>
          <form th:action="@{/all}" method="post" th:object="${index}">
