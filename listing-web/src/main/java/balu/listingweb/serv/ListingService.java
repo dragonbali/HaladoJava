@@ -26,4 +26,8 @@ public class ListingService {
 	public List<Boolean> isOkList (List<StudentDto> students){
 		return listingRepository.isOkList(students);
 	}
+	
+	public List<StudentDto> getStudents(){
+		return listingRepository.getStudents();
+	}
 }
