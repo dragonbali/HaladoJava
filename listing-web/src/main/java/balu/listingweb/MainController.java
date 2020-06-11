@@ -33,6 +33,7 @@ public class MainController {
 	public ModelAndView showAll() {
 		ModelAndView mav = new ModelAndView();
 	    mav.addObject("students", students);
+	    mav.addObject("isOkList",listingService.isOkList(students));
 	    mav.setViewName("all");	    
 	    return mav;
 	}
@@ -101,8 +102,8 @@ public class MainController {
 	 List<TaskDto> tasks1 = new ArrayList<TaskDto>();
 	 List<TaskDto> tasks2 = new ArrayList<TaskDto>();
 	
-	TaskDto testTask = new TaskDto("Töri ZH", deadline1, receiptTime1, listingService.notOrLate(deadline1, receiptTime1), "negyedik világháború", "nagyon jo megoldas!");
-	TaskDto testTask2 = new TaskDto("Töri Vizsga", deadline2, receiptTime2, listingService.notOrLate(deadline2, receiptTime2), "honfoglalás", "ez nagyon rossz volt!");
+	TaskDto testTask = new TaskDto("Töri ZH", deadline1, receiptTime1, listingService.notOrLate(deadline1, receiptTime1), "negyedik világháború régen lesz. Mindent le tudok róla írni.", "nagyon jo megoldas!");
+	TaskDto testTask2 = new TaskDto("Töri Vizsga", deadline2, receiptTime2, listingService.notOrLate(deadline2, receiptTime2), "honfoglalás 896-ban volt, de nem tudom kik csinálták.", "ez nagyon rossz volt!");
 	TaskDto testTask3 = new TaskDto("Közös Testnevelés", deadline3, receiptTime3, listingService.notOrLate(deadline3, receiptTime3), "konditerem (10 alkalmat teljesítette)", "Nagyon izmos lettél!");
 	
 	TeacherDto testTeacher = new TeacherDto("Anna Néni",students);

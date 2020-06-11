@@ -2,23 +2,34 @@
 <html lang="en"xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
    <head>
       <meta charset="UTF-8">
-      <title>All my students</title>
+      <link th:href="@{/styles/css/all.css}" rel="stylesheet" />
+      <title>A diákjaim</title>      
    </head>
    <body>
-      <div th:each="student : ${students}">
-         <p th:text="${student.studentName}"></p>
-         <span>Osszes feladatok: </span> 
-         <span th:text="${#lists.size(student.tasks)}"></span>          
-         <span th:each="task: ${student.tasks}">        
-         <span style="background-color: red;" th:unless="${task.isDone}">Van késon bekuldott vagy megoldatlan feladata!</span>
-         </span>
-         <br>
-         <form th:action="@{/all}" method="post" th:object="${index}">
-            <button type="submit" th:name="index" th:value="${studentStat.index}" >részletek</button>
-         </form>
-      </div>
+      <table th:each="student : ${students}">
+         <thead>
+            <tr>
+               <th th:text="${student.studentName}"></th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td th:text="'Feladatok száma: ' + ${#lists.size(student.tasks)}"></td>
+            </tr>
+            <tr>
+               <td style="background-color: #FF5E5E;" th:unless="${isOkList[studentStat.index]}"> Van késon bekuldott vagy megoldatlan feladata!</td>
+            </tr>
+            <tr>
+               <td>
+                  <form th:action="@{/all}" method="post" th:object="${index}">
+                     <button class="button2" style="vertical-align:middle" type="submit" th:name="index" th:value="${studentStat.index}" ><span>Tanulók listázása </span></button>
+                  </form>
+               </td>
+            </tr>
+         </tbody>
+      </table>
       <form  style="padding: 35px;" method="get" action="/">
-         <button type="submit">Vissza</button>
+         <button class="button5" type="submit">Vissza</button>
       </form>
    </body>
 </html>

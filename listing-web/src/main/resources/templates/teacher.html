@@ -2,11 +2,14 @@
 <html lang="en"xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
    <head>
       <meta charset="UTF-8">
-      <title>Teacher</title>
+      <link th:href="@{/styles/css/teacher.css}" rel="stylesheet" />
+      <title>Tanári felulet</title>
    </head>
    <body>
-      <form method="get" action="/all">
-         <button type="submit">Tanulók listázása</button>
-      </form>
+      <div class="container1">
+         <form method="get" action="/all">
+            <button class="button" style="vertical-align:middle" type="submit"><span>Tanulók listázása </span></button>
+         </form>
+      </div>
    </body>
 </html>

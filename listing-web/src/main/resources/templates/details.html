@@ -2,28 +2,40 @@
 <html lang="en"xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
    <head>
       <meta charset="UTF-8">
-      <title>Insert title here</title>
+      <link th:href="@{/styles/css/details.css}" rel="stylesheet" />
+      <title>Részletek</title>
    </head>
    <body>
-      <p th:text="${student.studentName}"></p>
-      <p>Feladatok:</p>
-      <ul th:each="task: ${student.tasks}">
-         <li th:text="${task.title}"></li>
-         <li>határido:</li>
-         <li th:text="${task.deadline}"></li>
-         <li>bekuldes ideje:</li>
-         <li th:text="${task.receiptTime}"></li>
-         <li th:text="${task.solution}"></li>
-         <li th:if="${task.isDone}">kész</li>
-         <li th:unless="${task.isDone}">nincs kész vagy késon teljesitette</li>
-         <li th:text="${task.comment}"></li>
-      </ul>
-      <p>Tanárok:</p>
+      <table>
+         <thead>
+            <tr>
+               <th th:text="${student.studentName}"></th>
+            </tr>
+            <tr>
+               <th>Feladat</th>
+               <th>Határido</th>
+               <th>Bekuldte</th>
+               <th>Megoldás</th>
+               <th>Állapot</th>
+               <th>Megjegyzés</th>
+            </tr>
+            <tr th:each="task: ${student.tasks}">
+               <th th:text="${task.title}"></th>
+               <th th:text="${#dates.format(task.deadline, 'yyyy-MM-dd')}"></th>
+               <th th:text="${#dates.format(task.receiptTime, 'yyyy-MM-dd')}"></th>
+               <th th:text="${task.solution}"></th>
+               <th style="background-color: #79FFA5;" th:if="${task.isDone}">Kész</th>
+               <th style="background-color: #FF5E5E;"th:unless="${task.isDone}">Nincs kész vagy késon teljesitette</th>
+               <th th:text="${task.comment}"></th>
+            </tr>
+         </thead>
+      </table>
+      <b>További tanárok:</b>
       <ul>
          <li th:each="teacher: ${student.teachers}" th:text="${teacher.teacherName}"></li>
       </ul>
-      <form style="padding: 35px;" method="get" action="/all">
-         <button type="submit">Vissza</button>
+      <form  style="padding: 35px;" method="get" action="/all">
+         <button class="button button5" type="submit">Vissza</button>
       </form>
    </body>
 </html>
