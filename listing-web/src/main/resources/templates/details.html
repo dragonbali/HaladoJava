@@ -24,8 +24,8 @@
                <th th:text="${#dates.format(task.deadline, 'yyyy-MM-dd')}"></th>
                <th th:text="${#dates.format(task.receiptTime, 'yyyy-MM-dd')}"></th>
                <th th:text="${task.solution}"></th>
-               <th style="background-color: #79FFA5;" th:if="${task.isDone}">Kész</th>
-               <th style="background-color: #FF5E5E;"th:unless="${task.isDone}">Nincs kész vagy késon teljesitette</th>
+               <th style="background-color: #79FFA5;" th:if="${@listingService.notOrLate(task.deadline, task.receiptTime)}">Kész</th>
+               <th style="background-color: #FF5E5E;"th:unless="${@listingService.notOrLate(task.deadline, task.receiptTime)}">Nincs kész vagy késon teljesitette</th>
                <th th:text="${task.comment}"></th>
             </tr>
          </thead>

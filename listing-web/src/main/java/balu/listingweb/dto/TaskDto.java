@@ -17,10 +17,7 @@ public class TaskDto {
 	private String title;
 	@NotNull
 	private Date deadline;
-	@NotNull
 	private Date receiptTime;
-	@NotNull
-	private Boolean isDone;
 	@NotNull
 	private String solution;
 	@NotNull

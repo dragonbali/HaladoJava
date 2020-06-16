@@ -11,30 +11,30 @@ import balu.listingweb.serv.ListingService;
 @Controller
 public class MainController {
 
-	@Autowired
-	private ListingService listingService;
-	
-	@GetMapping("/")
-	public String getTeacherPage() {
-		return "teacher";
-	}
-		
-	int counter = 0;
-	@GetMapping("/all")
-	public ModelAndView showAll() {
-		ModelAndView mav = new ModelAndView();
-	    mav.addObject("students", listingService.getStudents());
-	    mav.addObject("isOkList",listingService.isOkList(listingService.getStudents()));
-	    mav.setViewName("all");	    
-	    return mav;
-	}
-	
-	@RequestMapping(value = "all", params = "index", method = RequestMethod.POST)
-	public ModelAndView listAllStudents(int index) {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("details");
-		mav.addObject("student",listingService.getStudents().get(index));
-		return mav;		
-	}
-	
+    @Autowired
+    private ListingService listingService;
+
+    @GetMapping("/")
+    public String getTeacherPage() {
+        return "teacher";
+    }
+
+    int counter = 0;
+    @GetMapping("/all")
+    public ModelAndView showAll() {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("students", listingService.getStudents());
+        mav.addObject("isOkList", listingService.isOkList(listingService.getStudents()));
+        mav.setViewName("all");
+        return mav;
+    }
+
+    @RequestMapping(value = "all", params = "index", method = RequestMethod.POST)
+    public ModelAndView listAllStudents(int index) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("details");
+        mav.addObject("student", listingService.getStudents().get(index));
+        return mav;
+    }
+
 }
